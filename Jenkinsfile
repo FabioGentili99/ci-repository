@@ -1,4 +1,6 @@
-node('main') {
+//node('main') {
+pipeline {
+	agent any
 	stage('Poll') {
 		checkout scm
 	}
