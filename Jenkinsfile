@@ -1,6 +1,7 @@
 //node('main') {
 pipeline {
 	agent any
+	stages {
 	stage('Poll') {
 		checkout scm
 	}
@@ -28,6 +29,7 @@ pipeline {
 		sh 'mvn clean verify -Dsurefire.skip=true';
 		junit '**/target/failsafe-reports/TEST-*.xml'
 		archive 'target/*.jar'
+	}
 	}
 	
 }
